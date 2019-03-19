@@ -9,11 +9,12 @@ border:3px solid black;
 </style>
 <script>
 function validate(){
-var x = document.getElementById("tikcker").value;
+var e = document.getElementById("myForm").elements["Ticker"];
+var x = e.options[e.selectedIndex].value;
 if(!(x==="WIPRO"||x==="INFY"||x==="TCS"||x==="TECH M"))
 alert("Please check your ticker name");
 else{
-var a = document.getElementById("num").value;
+var a = document.getElementById("myForm").elements["num"].value;
 if(a<10||a>100)
 alert("Numbers should be between 10 and 100");
 else if(a%10==0)
@@ -36,10 +37,19 @@ alert("Quantity is NOT OK");
 <br>
 <h1><u>STOCK TRADING<u></h1><br>
 <table>
-<tr><td>Ticker</td><td><input type="text" id="tikcker"></td></tr>
-<tr><td>Quantity</td><td><input type="number" id="num" value="10"></td></tr>
-<tr><td><button onclick="validate()">submit</button></td></tr>
-</table>
+<form id="myForm">
+Ticker 
+<select name="Ticker" id="Ticker">
+    <option value="WIPRO">WIPRO</option>
+    <option value="INFY">INFY</option>
+    <option value="TCS">TCS</option>
+    <option value="TECH M">TECH M</option>
+  </select></br>
+Quantity
+<input type="number" id="num" value="10"><br>
+<input type="button" value="Submit" onclick="validate()"/>  
+</form>
+
 </div>
 
 </body>
