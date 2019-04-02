@@ -11,27 +11,6 @@ border:2px solid black;
 </style>
 <script>
 function validate(){
-var b=document.getElementById("myForm").elements["num"].value;
-var a=document.getElementById("myForm").elements["name"].value;
-var c=document.getElementById("myForm").elements["email"].value;
-var e = document.getElementById("myForm").elements["sel"];
-
-var d = e.options[e.selectedIndex].value;
-var c=0;
-
-for(var i=0;i<a.length;i++){
-if(!(a.charAt(i)>='a' && a.charAt(i)<='z'||a.charAt(i)>='A' && a.charAt(i)<='Z'||a.charAt(i)==" ")){
-c++;
-break;
-}
-}
-if(a===""||b===""||c===""||d==="")
-alert("All Fields Are Mandatory");
-else if(c==1)
-alert("Should contains alphabets");
-else if(!(b>=18))
-alert("Age should be greater than  or equal to 18");
-else
 alert("Success");
 }
 </script>
@@ -40,13 +19,13 @@ alert("Success");
 
 <center>
 <h2 style="font-style:Times New Roman;">Xena Events Registration</h2>
-<form id="myForm">
-Name:&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="name" id="name"><br><br>
-Age: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="num" value="19"><br><br>
-Email: &nbsp;&nbsp;&nbsp;&nbsp;<input type="email" name="email" id="email"><br><br>
+<form id="myForm" onsubmit="validate()">
+Name:&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="name" id="name" pattern="[a-zA-Z\s]+" required><br><br>
+Age: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="num" value="18" min="18" required><br><br>
+Email: &nbsp;&nbsp;&nbsp;&nbsp;<input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br><br>
 City : <select name="sel"><option>Rajkot</option><option>Vizag</option><option>Banglore</option></select><br><br>
 &nbsp;&nbsp;&nbsp;
-<input type="button" value="Submit" onclick="validate()"/>
+ <input type="submit" value="Submit">  
 </form>
 <center>
 </body>

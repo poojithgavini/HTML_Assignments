@@ -3,25 +3,15 @@
 <link rel="icon" href="wipro.png" >
 <title> Stocks</title>
 <style>
-table, tr, th ,td{
+table, tr, th ,td
+{
 border:3px solid black;
 }
 </style>
 <script>
 function validate(){
-var e = document.getElementById("myForm").elements["Ticker"];
-var x = e.options[e.selectedIndex].value;
-if(!(x==="WIPRO"||x==="INFY"||x==="TCS"||x==="TECH M"))
-alert("Please check your ticker name");
-else{
-var a = document.getElementById("myForm").elements["num"].value;
-if(a<10||a>100)
-alert("Numbers should be between 10 and 100");
-else if(a%10==0)
-alert("Quantity is OK");
-else
-alert("Quantity is NOT OK");
-}
+
+alert("The form was submitted");
 }
 </script>
 </head>
@@ -37,7 +27,7 @@ alert("Quantity is NOT OK");
 <br>
 <h1><u>STOCK TRADING<u></h1><br>
 <table>
-<form id="myForm">
+<form id="myForm"  onsubmit="validate()">
 Ticker 
 <select name="Ticker" id="Ticker">
     <option value="WIPRO">WIPRO</option>
@@ -46,11 +36,9 @@ Ticker
     <option value="TECH M">TECH M</option>
   </select></br>
 Quantity
-<input type="number" id="num" value="10"><br>
-<input type="button" value="Submit" onclick="validate()"/>  
+<input type="number" id="num" name="points" step="10" min="10" max="100" value="10"><br>
+ <input type="submit" value="Submit">  
 </form>
-
 </div>
-
 </body>
 </html>
